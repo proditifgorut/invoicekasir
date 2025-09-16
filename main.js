@@ -73,6 +73,7 @@ class DocumentGenerator {
         // Add item buttons
         document.getElementById('add-receipt-item').addEventListener('click', () => this.addItemRow('receipt-items'));
         document.getElementById('add-invoice-item').addEventListener('click', () => this.addItemRow('invoice-items'));
+        document.getElementById('add-note-item').addEventListener('click', () => this.addItemRow('note-items'));
     }
 
     setupEventListeners() {
@@ -452,7 +453,6 @@ class DocumentGenerator {
             <div class="relative z-10">
                 <div class="text-center mb-8">
                     <h1 class="text-3xl font-bold text-gray-800 mb-2">KWITANSI</h1>
-                    <div class="text-sm text-gray-600"><p class="font-medium">GeneratorDok</p><p>Solusi Dokumen Profesional</p><p>kontak@generatordok.com</p></div>
                 </div>
                 <div class="grid grid-cols-2 gap-8 mb-8">
                     <div><h3 class="font-semibold text-gray-800 mb-2">Informasi Pelanggan</h3><p class="text-gray-700">${formData.customerName}</p>${formData.customerAddress ? `<p class="text-gray-600 text-sm">${formData.customerAddress}</p>` : ''}</div>
@@ -487,7 +487,7 @@ class DocumentGenerator {
         preview.innerHTML = `
             <div class="relative z-10">
                 <div class="flex justify-between items-start mb-8">
-                    <div><h1 class="text-3xl font-bold text-gray-800 mb-2">FAKTUR</h1><div class="text-sm text-gray-600"><p class="font-medium">GeneratorDok</p><p>Solusi Dokumen Profesional</p><p>kontak@generatordok.com</p></div></div>
+                    <div><h1 class="text-3xl font-bold text-gray-800 mb-2">FAKTUR</h1><div class="text-sm text-gray-600"><p class="font-medium">GeneratorDok</p><p>kontak@generatordok.com</p></div></div>
                     <div class="text-right"><p class="text-sm text-gray-600">No. Faktur: <span class="font-medium">${formData.invoiceNumber}</span></p><p class="text-sm text-gray-600">Tanggal: <span class="font-medium">${this.formatDate(formData.date)}</span></p><p class="text-sm text-gray-600">Jatuh Tempo: <span class="font-medium">${this.formatDate(formData.dueDate)}</span></p><p class="text-sm text-gray-600">Syarat: <span class="font-medium">${this.translatePaymentTerms(formData.paymentTerms)}</span></p></div>
                 </div>
                 <div class="mb-8"><h3 class="font-semibold text-gray-800 mb-2">Ditagih Kepada:</h3><p class="text-gray-700 font-medium">${formData.billToName}</p>${formData.billToAddress ? `<p class="text-gray-600 text-sm whitespace-pre-line">${formData.billToAddress}</p>` : ''}</div>
@@ -505,21 +505,29 @@ class DocumentGenerator {
         preview.classList.remove(...this.bgClasses);
         if (this.backgroundConfigs.note) preview.classList.add(this.backgroundConfigs.note);
 
+        let itemsHTML = '';
+        let total = 0;
+        formData.items.forEach(item => {
+            const itemTotal = item.quantity * item.price;
+            total += itemTotal;
+            itemsHTML += `<tr class="border-b border-gray-200"><td class="py-2">${item.description}</td><td class="py-2 text-center">${item.quantity}</td><td class="py-2 text-right">Rp ${this.formatCurrency(item.price)}</td><td class="py-2 text-right font-medium">Rp ${this.formatCurrency(itemTotal)}</td></tr>`;
+        });
+
         preview.innerHTML = `
             <div class="relative z-10">
-                <div class="text-center mb-8"><h1 class="text-3xl font-bold text-gray-800 mb-2">NOTA DINAS</h1><div class="text-sm text-gray-600"><p class="font-medium">GeneratorDok</p><p>Solusi Dokumen Profesional</p></div></div>
-                <div class="mb-8 space-y-2">
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="border-b border-gray-300 pb-1"><span class="text-sm font-semibold text-gray-700">KEPADA:</span><p class="text-gray-800">${formData.to}</p></div>
-                        <div class="border-b border-gray-300 pb-1"><span class="text-sm font-semibold text-gray-700">DARI:</span><p class="text-gray-800">${formData.from || 'GeneratorDok'}</p></div>
-                        <div class="border-b border-gray-300 pb-1"><span class="text-sm font-semibold text-gray-700">TANGGAL:</span><p class="text-gray-800">${this.formatDate(formData.date)}</p></div>
-                    </div>
-                    <div class="border-b border-gray-300 pb-1"><span class="text-sm font-semibold text-gray-700">SUBJEK:</span><p class="text-gray-800 font-medium">${formData.subject}</p></div>
-                    <div class="border-b border-gray-300 pb-1"><span class="text-sm font-semibold text-gray-700">NO. NOTA:</span><p class="text-gray-800">${formData.noteNumber}</p></div>
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-2">NOTA TRANSAKSI</h1>
+                    <div class="text-sm text-gray-600"><p class="font-medium">GeneratorDok</p><p>kontak@generatordok.com</p></div>
                 </div>
-                <div class="mb-8"><div class="text-gray-800 leading-relaxed whitespace-pre-line">${formData.message}</div></div>
+                <div class="grid grid-cols-2 gap-8 mb-8">
+                    <div><h3 class="font-semibold text-gray-800 mb-2">Pelanggan</h3><p class="text-gray-700">${formData.customerName}</p></div>
+                    <div class="text-right"><p class="text-sm text-gray-600">No. Nota: <span class="font-medium">${formData.noteNumber}</span></p><p class="text-sm text-gray-600">Tanggal: <span class="font-medium">${this.formatDate(formData.date)}</span></p></div>
+                </div>
+                <table class="w-full mb-8"><thead><tr class="border-b-2 border-gray-800"><th class="text-left py-2">Deskripsi</th><th class="text-center py-2">Qty</th><th class="text-right py-2">Harga</th><th class="text-right py-2">Total</th></tr></thead><tbody>${itemsHTML}</tbody></table>
+                <div class="text-right mb-8"><div class="inline-block"><div class="flex justify-between w-48 border-t-2 border-gray-800 pt-2"><span class="font-bold">TOTAL:</span><span class="font-bold">Rp ${this.formatCurrency(total)}</span></div></div></div>
+                ${formData.notes ? `<div class="border-t border-gray-200 pt-4 mb-8"><p class="text-sm text-gray-600">${formData.notes}</p></div>` : ''}
                 ${this.getStampHTML('note')}<div class="clear-both"></div>
-                <div class="text-center mt-12 text-xs text-gray-500"><p>Dokumen ini dibuat secara elektronik dan sah tanpa tanda tangan.</p></div>
+                <div class="text-center mt-8 text-xs text-gray-500"><p>Terima kasih atas pembelian Anda!</p></div>
             </div>`;
     }
 
@@ -549,9 +557,11 @@ class DocumentGenerator {
                 discountRate: parseFloat(document.getElementById('discount-rate').value) || 0, notes: document.getElementById('invoice-notes').value
             };
             case 'note': return {
-                noteNumber: document.getElementById('note-number').value, date: document.getElementById('note-date').value,
-                to: document.getElementById('note-to').value, from: document.getElementById('note-from').value,
-                subject: document.getElementById('note-subject').value, message: document.getElementById('note-message').value
+                noteNumber: document.getElementById('note-number').value,
+                date: document.getElementById('note-date').value,
+                customerName: document.getElementById('note-customer-name').value,
+                items: getItems('note-items'),
+                notes: document.getElementById('note-notes').value
             };
         }
     }
