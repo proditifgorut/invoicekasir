@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generator Kwitansi & Faktur Online</title>
+    <meta name="description" content="Buat kwitansi, faktur, dan nota profesional secara online dengan mudah menggunakan generator kami" />
+    <meta name="author" content="Dualite Alpha" />
+    <meta property="og:title" content="Generator Kwitansi & Faktur Online" />
+    <meta property="og:description" content="Buat kwitansi, faktur, dan nota profesional secara online dengan mudah menggunakan generator kami" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://ibb.co/67X3xfSV" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Generator Kwitansi & Faktur Online" />
+    <meta name="twitter:description" content="Buat kwitansi, faktur, dan nota profesional secara online dengan mudah menggunakan generator kami" />
+    <meta name="twitter:site" content="@dualitedev" />
+    <meta name="twitter:image" content="https://ibb.co/67X3xfSV" />
+    <link rel="canonical" href="https://alpha.dualite.dev" />
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Generator Kwitansi & Faktur Online",
+          "url": "https://alpha.dualite.dev",
+          "description": "Buat kwitansi, faktur, dan nota profesional secara online dengan mudah menggunakan generator kami",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Dualite Alpha"
+          }
+        }
+    </script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-sm border-b border-gray-200 no-print">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <h1 class="text-xl font-bold text-gray-900">GeneratorDok</h1>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <button id="home-nav" class="nav-btn text-primary-600 border-b-2 border-primary-600 px-3 py-2 text-sm font-medium">Beranda</button>
+                            <button id="receipt-nav" class="nav-btn text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Kwitansi</button>
+                            <button id="invoice-nav" class="nav-btn text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Faktur</button>
+                            <button id="note-nav" class="nav-btn text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Nota</button>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-700">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden pb-3">
+                    <button class="mobile-nav-btn block px-3 py-2 text-primary-600 font-medium">Beranda</button>
+                    <button class="mobile-nav-btn block px-3 py-2 text-gray-500 hover:text-gray-700">Kwitansi</button>
+                    <button class="mobile-nav-btn block px-3 py-2 text-gray-500 hover:text-gray-700">Faktur</button>
+                    <button class="mobile-nav-btn block px-3 py-2 text-gray-500 hover:text-gray-700">Nota</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Home Page -->
+        <div id="home-page" class="page-content">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
+                        Buat Dokumen Profesional
+                        <span class="text-primary-600">Online</span>
+                    </h1>
+                    <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                        Buat kwitansi, faktur, dan nota dengan cepat dan profesional. Input data secara manual dan dapatkan dokumen siap cetak dalam sekejap.
+                    </p>
+                </div>
+                
+                <div class="mt-16">
+                    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                        <!-- Receipt Card -->
+                        <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 text-center hover:shadow-xl transition-shadow duration-300 cursor-pointer" data-page="receipt">
+                            <div class="mx-auto h-12 w-12 text-primary-600 mb-4">
+                                <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                    <path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1zM10 6a2 2 0 0 1 4 0v1h-4V6zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2v10z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-medium text-gray-900">Kwitansi</h3>
+                            <p class="mt-2 text-sm text-gray-500">Buat kwitansi sederhana untuk transaksi dan pembelian</p>
+                            <button class="mt-4 bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-primary-400 w-full">Buat Kwitansi</button>
+                        </div>
+
+                        <!-- Invoice Card -->
+                        <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 text-center hover:shadow-xl transition-shadow duration-300 cursor-pointer" data-page="invoice">
+                            <div class="mx-auto h-12 w-12 text-primary-600 mb-4">
+                                <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                    <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H5V5h14v14zm-5-7h-4v2h4v-2zm0-4h-4v2h4V8z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-medium text-gray-900">Faktur</h3>
+                            <p class="mt-2 text-sm text-gray-500">Buat faktur lengkap untuk transaksi bisnis</p>
+                            <button class="mt-4 bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-primary-400 w-full">Buat Faktur</button>
+                        </div>
+
+                        <!-- Note Card -->
+                        <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 text-center hover:shadow-xl transition-shadow duration-300 cursor-pointer" data-page="note">
+                            <div class="mx-auto h-12 w-12 text-primary-600 mb-4">
+                                <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-medium text-gray-900">Nota</h3>
+                            <p class="mt-2 text-sm text-gray-500">Buat nota dan memo profesional</p>
+                            <button class="mt-4 bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-primary-400 w-full">Buat Nota</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Receipt Page -->
+        <div id="receipt-page" class="page-content hidden">
+            <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Form Section -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Buat Kwitansi</h2>
+                        <form id="receipt-form" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Kwitansi</label>
+                                    <input type="text" id="receipt-number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" placeholder="KWT-001" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                                    <input type="date" id="receipt-date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" required>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nama Pelanggan</label>
+                                <input type="text" id="customer-name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" placeholder="Budi Santoso" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Alamat Pelanggan</label>
+                                <textarea id="customer-address" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" rows="2" placeholder="Jl. Contoh No. 123, Jakarta"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Item Barang/Jasa</label>
+                                <div id="receipt-items" class="space-y-2">
+                                    <div class="item-row grid grid-cols-12 gap-2">
+                                        <input type="text" placeholder="Deskripsi barang/jasa" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200 col-span-6 item-description">
+                                        <input type="number" placeholder="Qty" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200 col-span-2 item-quantity" min="1" value="1">
+                                        <input type="number" placeholder="Harga" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200 col-span-3 item-price" step="0.01">
+                                        <button type="button" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200 col-span-1 remove-item hidden">×</button>
+                                    </div>
+                                </div>
+                                <button type="button" id="add-receipt-item" class="mt-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200">Tambah Item</button>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Catatan Tambahan</label>
+                                <textarea id="receipt-notes" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" rows="2" placeholder="Terima kasih atas kepercayaan Anda!"></textarea>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Stempel (Opsional)</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" id="select-receipt-stamp" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200">Pilih Stempel</button>
+                                        <button type="button" id="clear-receipt-stamp" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200 text-red-600 hidden">Hapus</button>
+                                    </div>
+                                    <div id="receipt-stamp-preview" class="mt-2 hidden"></div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Latar Belakang (Opsional)</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" id="select-receipt-background" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200">Pilih Latar</button>
+                                        <button type="button" id="clear-receipt-background" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200 text-red-600 hidden">Hapus</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-4 pt-4">
+                                <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-primary-400 flex-1">Buat Pratinjau</button>
+                                <button type="button" id="download-receipt-pdf" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200 flex-1">Unduh PDF</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Preview Section -->
+                    <div class="lg:sticky lg:top-8">
+                        <div id="receipt-preview" class="bg-white p-8 max-w-2xl mx-auto border border-gray-300 relative">
+                            <!-- Preview will be generated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invoice Page -->
+        <div id="invoice-page" class="page-content hidden">
+            <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Form Section -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Buat Faktur</h2>
+                        <form id="invoice-form" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Faktur</label>
+                                    <input type="text" id="invoice-number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" placeholder="FAK-001" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                                    <input type="date" id="invoice-date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" required>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Jatuh Tempo</label>
+                                    <input type="date" id="invoice-due-date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Syarat Pembayaran</label>
+                                    <select id="payment-terms" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200">
+                                        <option value="Net 30">30 Hari</option>
+                                        <option value="Net 15">15 Hari</option>
+                                        <option value="Due on Receipt">Bayar Saat Diterima</option>
+                                        <option value="Cash">Tunai</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Ditagih Kepada</label>
+                                <input type="text" id="bill-to-name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200 mb-2" placeholder="Nama Perusahaan/Pelanggan" required>
+                                <textarea id="bill-to-address" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" rows="3" placeholder="Alamat Penagihan"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Item/Layanan</label>
+                                <div id="invoice-items" class="space-y-2">
+                                    <div class="item-row grid grid-cols-12 gap-2">
+                                        <input type="text" placeholder="Deskripsi" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200 col-span-6 item-description">
+                                        <input type="number" placeholder="Qty" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200 col-span-2 item-quantity" min="1" value="1">
+                                        <input type="number" placeholder="Tarif" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200 col-span-3 item-price" step="0.01">
+                                        <button type="button" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200 col-span-1 remove-item hidden">×</button>
+                                    </div>
+                                </div>
+                                <button type="button" id="add-invoice-item" class="mt-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200">Tambah Item</button>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Tarif Pajak (%)</label>
+                                    <input type="number" id="tax-rate" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" step="0.01" value="0">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Diskon (%)</label>
+                                    <input type="number" id="discount-rate" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" step="0.01" value="0">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Catatan</label>
+                                <textarea id="invoice-notes" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" rows="2" placeholder="Terima kasih atas kepercayaan Anda!"></textarea>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Stempel (Opsional)</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" id="select-invoice-stamp" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200">Pilih Stempel</button>
+                                        <button type="button" id="clear-invoice-stamp" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200 text-red-600 hidden">Hapus</button>
+                                    </div>
+                                    <div id="invoice-stamp-preview" class="mt-2 hidden"></div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Latar Belakang (Opsional)</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" id="select-invoice-background" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200">Pilih Latar</button>
+                                        <button type="button" id="clear-invoice-background" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200 text-red-600 hidden">Hapus</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-4 pt-4">
+                                <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-primary-400 flex-1">Buat Pratinjau</button>
+                                <button type="button" id="download-invoice-pdf" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200 flex-1">Unduh PDF</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Preview Section -->
+                    <div class="lg:sticky lg:top-8">
+                        <div id="invoice-preview" class="bg-white p-8 max-w-2xl mx-auto border border-gray-300 relative">
+                            <!-- Preview will be generated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Note Page -->
+        <div id="note-page" class="page-content hidden">
+            <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Form Section -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Buat Nota</h2>
+                        <form id="note-form" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Nota</label>
+                                    <input type="text" id="note-number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" placeholder="NOTA-001" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                                    <input type="date" id="note-date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" required>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Kepada</label>
+                                <input type="text" id="note-to" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" placeholder="Nama Penerima" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Dari</label>
+                                <input type="text" id="note-from" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" placeholder="Nama Anda">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Subjek</label>
+                                <input type="text" id="note-subject" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" placeholder="Subjek Nota" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Pesan</label>
+                                <textarea id="note-message" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" rows="8" placeholder="Masukkan pesan Anda di sini..." required></textarea>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Stempel (Opsional)</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" id="select-note-stamp" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200">Pilih Stempel</button>
+                                        <button type="button" id="clear-note-stamp" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200 text-red-600 hidden">Hapus</button>
+                                    </div>
+                                    <div id="note-stamp-preview" class="mt-2 hidden"></div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Latar Belakang (Opsional)</label>
+                                    <div class="flex space-x-2">
+                                        <button type="button" id="select-note-background" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200">Pilih Latar</button>
+                                        <button type="button" id="clear-note-background" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200 text-red-600 hidden">Hapus</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-4 pt-4">
+                                <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-primary-400 flex-1">Buat Pratinjau</button>
+                                <button type="button" id="download-note-pdf" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200 flex-1">Unduh PDF</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Preview Section -->
+                    <div class="lg:sticky lg:top-8">
+                        <div id="note-preview" class="bg-white p-8 max-w-2xl mx-auto border border-gray-300 relative">
+                            <!-- Preview will be generated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stamp Selection Modal -->
+        <div id="stamp-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 no-print">
+            <div class="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+                <div class="p-6 border-b border-gray-200">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-900">Pilih & Edit Stempel</h3>
+                        <button id="close-stamp-modal" class="text-gray-400 hover:text-gray-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <!-- Stamp Templates -->
+                    <div class="mb-6">
+                        <h4 class="text-md font-medium text-gray-800 mb-4">Pilih Template Stempel:</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="stamp-templates">
+                            <!-- Templates will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Stamp Customization -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-md font-medium text-gray-800 mb-4">Kustomisasi Stempel:</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Teks Utama</label>
+                                    <input type="text" id="stamp-main-text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" placeholder="NAMA PERUSAHAAN">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Teks Tambahan</label>
+                                    <input type="text" id="stamp-sub-text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200" placeholder="Alamat atau keterangan">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Teks Status</label>
+                                    <select id="stamp-status-text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200">
+                                        <option value="LUNAS">LUNAS</option>
+                                        <option value="DIBAYAR">DIBAYAR</option>
+                                        <option value="VALID">VALID</option>
+                                        <option value="APPROVED">APPROVED</option>
+                                        <option value="RESMI">RESMI</option>
+                                        <option value="SALINAN">SALINAN</option>
+                                        <option value="">Tanpa Status</option>
+                                    </select>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Warna</label>
+                                        <select id="stamp-color" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200">
+                                            <option value="blue">Biru</option>
+                                            <option value="red">Merah</option>
+                                            <option value="green">Hijau</option>
+                                            <option value="purple">Ungu</option>
+                                            <option value="black">Hitam</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Ukuran</label>
+                                        <select id="stamp-size" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200">
+                                            <option value="small">Kecil</option>
+                                            <option value="medium" selected>Sedang</option>
+                                            <option value="large">Besar</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-md font-medium text-gray-800 mb-4">Pratinjau Stempel:</h4>
+                            <div class="border border-gray-200 rounded-lg p-8 bg-gray-50 flex items-center justify-center min-h-[200px]">
+                                <div id="stamp-preview-modal" class="text-center">
+                                    <!-- Live preview will be generated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end space-x-4 mt-6 pt-6 border-t border-gray-200">
+                        <button id="cancel-stamp" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200">Batal</button>
+                        <button id="apply-stamp" class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-primary-400">Terapkan Stempel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Selection Modal -->
+        <div id="background-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 no-print">
+            <div class="bg-white rounded-lg max-w-3xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+                <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                    <h3 class="text-lg font-semibold text-gray-900">Pilih Latar Belakang</h3>
+                    <button id="close-background-modal" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="background-templates">
+                        <!-- BG Templates will be populated by JS -->
+                    </div>
+                </div>
+                <div class="flex justify-end space-x-4 p-6 border-t border-gray-200">
+                    <button id="cancel-background" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-gray-200">Batal</button>
+                    <button id="apply-background" class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-primary-400">Terapkan Latar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>

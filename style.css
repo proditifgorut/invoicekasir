@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* All @apply rules have been removed and their utility classes moved directly into the HTML and JS files to prevent build errors. */
+
+  /* Stamp Styles */
+  .stamp-official {
+    display: inline-block;
+    border-width: 4px;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.25;
+    user-select: none;
+    background-color: rgba(var(--stamp-bg-color, 55, 65, 81), 0.1);
+  }
+  
+  .stamp-vintage {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .stamp-hexagon {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    border-width: 4px;
+    background-color: rgba(var(--stamp-bg-color, 55, 65, 81), 0.1);
+  }
+
+  /* For the shield SVG strokes */
+  .stroke-blue-600 { stroke: #2563eb; }
+  .stroke-red-600 { stroke: #dc2626; }
+  .stroke-green-600 { stroke: #16a34a; }
+  .stroke-purple-600 { stroke: #9333ea; }
+  .stroke-gray-800, .stroke-black { stroke: #1f2937; }
+
+  /* Background Styles */
+  .bg-minimalis {
+    background-color: #f7f7f7;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e0e0e0' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .bg-profesional {
+    background-color: #ffffff;
+    background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+    background-size: 20px 20px;
+  }
+
+  .bg-modern {
+    background-color: #f9f9f9;
+    background-image: repeating-linear-gradient(45deg, #f0f0f0, #f0f0f0 1px, transparent 1px, transparent 10px);
+  }
+
+  .bg-klasik {
+    background-color: #fdf6e3;
+    background-image: url("https://www.transparenttextures.com/patterns/old-paper.png");
+  }
+
+  .bg-geometris {
+    background-color: #ffffff;
+    background-image: radial-gradient(#e8e8e8 1px, transparent 1px);
+    background-size: 15px 15px;
+  }
+
+  .bg-watermark {
+    background-color: #ffffff;
+  }
+  .bg-watermark::before {
+    content: 'GeneratorDok';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 6rem;
+    font-weight: 800;
+    color: #000000;
+    opacity: 0.05;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Responsive stamp sizes */
+  @media (max-width: 640px) {
+    .stamp-container {
+      float: none;
+      text-align: center;
+      margin-bottom: 1rem; /* mb-4 */
+    }
+  }
+  
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    .receipt-template {
+      box-shadow: none !important;
+      border: none !important;
+      margin: 0 !important;
+      padding: 20px !important;
+    }
+
+    .stamp-container {
+      break-inside: avoid;
+    }
+    
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+}
